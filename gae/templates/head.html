@@ -1,0 +1,28 @@
+{# Google Analytics #}
+<script type="text/javascript">
+  (function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-107280561-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<meta charset="UTF-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+{# faviconをchromeように作成 #}
+{# iOS端末用 #}
+<link href="/static/favicon/apple-touch-icon.png?v={{version}}" rel="apple-touch-icon" sizes="180x180" />
+{# Android用 #}
+<link href="/static/manifest.json?v={{version}}" rel="manifest" />
+{# Safari用 #}
+<link color="#5bbad5" href="/static/favicon/safari-pinned-tab.svg?v={{version}}" rel="mask-icon" />
+{# ホーム画面登録用 #}
+<meta content="いちウェア" name="apple-mobile-web-app-title" />
+<meta content="いちウェア" name="application-name" />
+<meta content="#ffffff" name="theme-color" />

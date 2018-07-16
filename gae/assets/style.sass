@@ -1,0 +1,330 @@
+@import "materialize"
+
+
+$link: #1e88e5
+$primary: #2196f3
+
+// robotoフォント無効化
+html
+  font-family: GillSans, Calibri, Trebuchet, sans-serif
+
+//画面のスクロールバーを消す
+body
+  background-color: white
+  width: 100%
+  min-height: 100%
+  font-size: 14px
+  color: #222
+
+//全体divを作成
+div.page
+  position: absolute
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  overflow-y: auto
+  overflow-x: hidden
+  -webkit-overflow-scrolling: touch
+
+//バインディングがすむまで隠す
+//大カッコは属性名という意味
+div[v-cloak]
+  display: none
+
+//ヘッダ
+header
+  border-bottom: solid 2px gray
+  div.row
+    margin-bottom: 0px
+
+//天気と時計
+div#watch_weather
+  margin-bottom: 0px
+//時計
+div#watch
+  margin-left: -8px
+  margin-top: 4px
+  width: 100%
+  height: 24px
+  position: relative
+  span
+    margin-left: 8px
+    position: absolute
+    bottom: 0px
+div.large_font#watch
+  margin-top: 2px
+  font-size: 20px
+//天気
+div#weather
+  height: 28px
+  text-align: right
+
+img.weather
+  width: 24px
+  height: 24px
+  margin-top: 4px
+  margin-left: 4px
+  margin-right: 4px
+
+span.temp
+  color: #666
+  margin-right: 4px
+  display: none
+
+span.temp.large_font
+  font-size: 20px
+
+//ヘッダのメイン行
+div#header_main
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+
+//自動更新と大きな文字ボタン
+div#action_items
+  flex-grow: 1
+  text-align: right
+
+//ロゴと近い駅を表示
+a#logo
+  display: block
+  line-height: 100%
+  padding-top: 8px
+  padding-bottom: 8px
+
+//ロゴ
+img#logo
+  width: 64px
+  height: 48px
+
+//隠す
+.hidden
+  visibility: hidden
+
+//近い駅を表示
+span#updated
+  display: inline-block
+  font-size: 12px
+  color: $link
+
+//近い駅を表示のアニメーション
+.updated-enter
+  opacity: 0
+
+.updated-enter-active
+  transition: all 0.2s
+  opacity: 1
+
+
+div.toggle_button
+  display: inline-block
+  margin-top: 16px
+  margin-bottom: 16px
+  border: 2px solid $primary
+  padding-left: 16px
+  padding-top: 8px
+  padding-right: 16px
+  padding-bottom: 8px
+  color: $link
+  font-weight: bold
+
+div.toggle_button_on
+  background-color: $primary
+  color: white
+
+div#auto_update
+
+div#large_font
+  margin-left: 8px
+
+//通常リンク
+a
+  padding-top: 4px
+  padding-left: 8px
+  padding-bottom: 4px
+  padding-right: 8px
+
+//ヘッダ以外のすべて
+//縦のみスクロールする
+main
+  width: 100%
+  overflow-y: auto
+  overflow-x: hidden
+
+//読込中
+div#loading
+  text-align: center
+
+img#satellite
+  max-width: 150px
+  width: 100%
+  margin-top: 32px
+
+div#accuracy
+  margin-top: 16px
+  text-align: center
+
+.satellite-enter
+  transform: translate(-10px,0px)
+
+.satellite-enter-active
+  transition: all 6s
+  transform: translate(20px,0)
+//現在地エラー
+div.location_error
+  margin-top: 16px
+
+//駅名読み
+div#ruby
+  font-size: 12px
+  text-align: center
+
+//駅名読み(大きい文字)
+div.large_font#ruby
+  font-size: 24px
+
+//駅名
+h2
+  font-size: 20px
+  margin-top: 0px
+  margin-bottom: 0px
+  text-align: center
+
+//駅名(大きい文字)
+h2.large_font
+  font-size: 40px
+
+//住所
+div#address
+  margin-top: 8px
+  text-align: center
+div#address:before
+  content: "("
+div#address:after
+  content: ")"
+
+//住所(大きい文字)
+div.large_font#address
+  font-size: 28px
+
+//リンク集
+div#links
+  margin-top: 12px
+  text-align: center
+
+//事業者コンテナ
+div.companies
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+
+//事業者
+div.company
+  margin-top: 16px
+
+//事業者(大きい文字)
+div.company.large_font
+  font-size: 32px
+
+//社名テキスト
+div.company_name
+  color: #666
+  margin-bottom : 16px
+
+//路線
+div.line
+  display: flex
+  flex-direction: row
+  margin-top: 8px
+
+div.line_left
+
+//路線色
+div.line_color
+  width: 32px
+  height: 32px
+  border-radius: 16px
+
+//右
+div.line_right
+  width: 100%
+  margin-left: 16px
+
+//路線名1
+span.line_name1
+  margin-left: 8px
+
+//路線名2
+span.line_name2
+  margin-left: 0.5em
+
+div.line_line
+  background-color: #666
+  height: 2px
+
+div.line_previous_next
+  display: flex
+  flex-direction: row
+
+div.previous_station
+  width: 50%
+  text-align: left
+  span
+    padding-left: 8px
+    padding-right: 8px
+    color: $link
+
+div.next_station
+  width: 50%
+  text-align: right
+  span
+    padding-left: 8px
+    padding-right: 8px
+    color: $link
+
+//ツイートする
+.tweet
+  background-color: #1da1f2
+  padding: 4px 8px
+  color: white
+  img
+    width: 14px
+    height: 14px
+    margin-right: 4px
+
+//フッダ
+div#thanks
+  color: #666
+  a
+    padding: 0px
+
+//Twitterカード
+div.twitter_card
+  font-family: Roboto
+  width: 1080px
+  height: 540px
+  border-color: #00b2e5
+  border-width: 3*8px
+  border-style: solid
+  main
+    margin-top: 160px
+  #ruby
+    font-size: 3*12px
+  h2
+    font-size: 3*20px
+  #line
+    margin-top: 3 * 8px
+    width: 1080px
+    height: 3 * 4px
+    background-color: #f15a22
+  #address
+    margin-top: 3 * 8px
+    font-size: 3*14px
+  #brand
+    font-size: 3 * 12px
+    color: #bbb
+    position: absolute
+    text-align: right
+    left: 1080px - 200px
+    top: 540px - 125px
