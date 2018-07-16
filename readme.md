@@ -10,7 +10,7 @@ https://ichiwear.jp/
 ## ソースコード掲載範囲
 
 ソースコードの掲載範囲はGoogle App EngineとGoogle Cloud Functionsにデプロイしている分のみとなります。
-駅の情報はGoogle Cloud Storageに格納していますが、駅データ．ｊｐ (http://www.ekidata.jp/)　様からの有料購入データを加工したものなので、掲載していません。また、API利用キーなどもセキュリティ上の問題から掲載していません。
+駅の情報はGoogle Cloud Storageに格納していますが、駅データ．ｊｐ (http://www.ekidata.jp/) 様からの有料購入データを加工したものなので、掲載していません。また、API利用キーなどもセキュリティ上の問題から掲載していません。
 
 ## Google App Engine アプリ
 
