@@ -1,0 +1,30 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /favicon\.ico
+  static_files: static/favicon.ico
+  upload: static/favicon\.ico
+  # login: admin
+- url: /browserconfig\.xml
+  static_files: static/browserconfig.xml
+  upload: static/browserconfig\.xml
+  # login: admin
+- url: /upload/.*
+  script: main.app
+- url: /static
+  static_dir: static
+- url: /fonts
+  static_dir: fonts
+  # login: admin
+- url: /.*
+  script: main.app
+  # login: admin
+
+automatic_scaling:
+  min_pending_latency: 300ms
+
+skip_files:
+  - ^assets/.*
+  - ^node_modules/.*

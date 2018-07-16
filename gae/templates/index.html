@@ -1,0 +1,51 @@
+<html lang="ja">
+<head>
+  {% include 'head.html' %}
+  {#CSS #}
+  <link href="static/style.css?v={{version}}" rel="stylesheet" type="text/css" />
+  {# JSライブラリ #}
+  <script src="static/jquery.min.js?v={{version}}" type="text/javascript"></script>
+  <script src="static/materialize.min.js?v={{version}}" type="text/javascript"></script>
+  <script src="static/vue.min.js?v={{version}}" type="text/javascript"></script>
+  <script src="static/vue-resource.min.js?v={{version}}" type="text/javascript"></script>
+  {# タイトル #}
+  <title>いちウェア</title>
+  {# Twitter カード (トップページ用) #}
+  {% if station_id == 0 %}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ichiwear" />
+    <meta property="og:url"　content="https://ichiwear.jp/" />
+    <meta property="og:title" content="いちウェア" />
+    <meta property="og:description" content="現在位置に一番近い駅の情報を表示します。" />
+    <meta property="og:image" content="https://ichiwear.jp/static/twitter_card.png" />
+  {% else %}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ichiwear" />
+    <meta name="twitter:creator" content="@ichiwear" />
+    <meta name="twitter:title" content="いちウェア" />
+    {# <meta name="twitter:description" content="今、ここにいます。" /> #}
+    <meta name="twitter:image" content="https://{{hostname}}/twitter_card_image/{{ "%07d" % station_id }}" />
+  {% endif %}
+  {# Google 検索 スニペット #}
+  <meta name="description" content="いちウェアはスマートフォンの位置情報を用いて、今居る場所に一番近い駅の情報を表示するWebアプリです。"/>
+</head>
+<body>
+  {# ヘッダと本文 #}
+  <div class="page" id="main" v-cloak="">
+    <header>
+      <div class="container" id="header">
+        {% include 'header.html' %}
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        {% include 'watch_weather.html' %}
+        {% include 'body.html' %}
+      </div>
+    </main>
+  </div>
+  <p class="hide" id="version">{{version}}</p>
+  <p class="hide" id="station_id">{{station_id}}</p>
+  <script src="static/main.js?v={{version}}" type="text/javascript"></script>
+</body>
+</html>
