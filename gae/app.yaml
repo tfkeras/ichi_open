@@ -28,10 +28,7 @@ automatic_scaling:
 skip_files:
   - ^assets/.*
   - ^node_modules/.*
-<<<<<<< HEAD
 
 libraries:
-- name: ssl
-  version: latest
-=======
->>>>>>> 4a45b8300de0eadba48e792699ba58d6b304a946
+  - name: ssl
+    version: latest
