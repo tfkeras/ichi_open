@@ -1,0 +1,20 @@
+<div class="row" id="watch_weather">
+  <div class="col s4">
+    <div class="waves-effect" id="watch" v-bind:class="{large_font : largeFont}" v-on:click="onClickWatch()">
+      <span v-if="watch.mode &gt;= 1">[[watch.text]]</span>
+    </div>
+  </div>
+  <div class="col s8" id="weather" v-if="locationError == null &amp;&amp; networkError == false">
+    <span v-for="(name,index) in weather.list">
+      <img alt="&gt;" src="/static/weather/arrow.svg?v={{version}}" v-if="index == 1" />
+      <img alt="晴れ" class="weather" src="/static/weather/sunny.svg?v={{version}}" v-if="name == 'sunny'" />
+      <img alt="晴れ" class="weather" src="/static/weather/moon.svg?v={{version}}" v-if="name == 'moon'" />
+      <img alt="曇り" class="weather" src="/static/weather/cloud.svg?v={{version}}" v-if="name == 'cloud'" />
+      <img alt="雨" class="weather" src="/static/weather/rain.svg?v={{version}}" v-if="name == 'rain'" />
+      <img alt="雪" class="weather" src="/static/weather/snow.svg?v={{version}}" v-if="name == 'snow'" />
+      <img alt="その他" class="weather" src="/static/weather/other.svg?v={{version}}" v-if="name == 'other'" />
+      <img alt="エラー" class="weather" src="/static/weather/error.svg?v={{version}}" v-if="name == 'error'" />
+      <span class="temp" v-bind:class="{large_font : largeFont}" v-if="weather.temp != null &amp;&amp; index == 0">[[weather.temp]] ℃</span>
+    </span>
+  </div>
+</div>

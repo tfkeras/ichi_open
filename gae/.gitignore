@@ -1,0 +1,9 @@
+lib
+*.pyc
+node_modules
+materialize.js
+static/style.css
+static/guide.css
+static/main.js
+static/style.js
+static/guide.js

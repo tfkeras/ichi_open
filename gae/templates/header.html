@@ -1,0 +1,20 @@
+<div class="row" v-if="debug">
+  <div class="col s12">
+    <span v-if="accuracy || accuracy &gt; 0">精度 [[accuracy]] m</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12">
+    <div id="header_main">
+      <a class="waves-effect" id="logo" v-bind:href="nearestLink">
+        <img id="logo" src="/static/icon.svg?v={{version}}" />
+        <br />
+        <span class="updated-enter" id="updated" v-bind:class="{ hidden: !updated , 'updated-enter-active': updated}">近い駅を表示</span>
+      </a>
+      <div id="action_items">
+        <div class="toggle_button waves-effect waves-light" id="auto_update" v-bind:class="{toggle_button_on : autoUpdate}" v-on:click="autoUpdate = !autoUpdate">自動更新</div>
+        <div class="toggle_button waves-effect waves-light" id="large_font" v-bind:class="{toggle_button_on : largeFont}" v-on:click="largeFont = !largeFont">大きい文字</div>
+      </div>
+    </div>
+  </div>
+</div>
