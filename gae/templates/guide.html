@@ -1,0 +1,25 @@
+<html lang="ja">
+<head>
+  {% include 'guide_head.html' %}
+  <title>いちウェア ご利用ガイド</title>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="row" id="header">
+        <div class="col s12">
+          <a class="waves-effect" id="icon" href="/">
+            <img id="icon" src="/static/icon.svg?v={{version}}" />
+          </a>
+          <h2>ご利用ガイド</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          {% include 'guide_body.html' %}
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

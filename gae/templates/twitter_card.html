@@ -1,0 +1,28 @@
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  {#CSS #}
+  <link href="/static/style.css" rel="stylesheet" type="text/css" />
+  {# JSライブラリ #}
+  <script src="/static/jquery.min.js" type="text/javascript"></script>
+  <script src="/static/materialize.min.js" type="text/javascript"></script>
+  {# タイトル #}
+  <title>いちウェア</title>
+</head>
+<body>
+  {# ヘッダと本文 #}
+  <div class="twitter_card">
+    <main>
+      {# ルビ #}
+      <div id="ruby">{{ruby}}</div>
+      {# 駅名 #}
+      <h2>{{name}}</h2>
+      <div id="line"></div>
+      {# 住所 #}
+      <div id="address">{{address}}</div>
+      <p id="brand">いちウェア</p>
+    </main>
+  </div>
+</body>
+</html>

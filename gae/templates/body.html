@@ -1,0 +1,93 @@
+<div id="loading" v-if="loading">
+  <div class="row">
+    <div class="col s4"></div>
+    <div class="col s4">
+      <img class="satellite-enter" id="satellite" src="/static/satellite.svg?v={{version}}" v-bind:class="satelliteClass" />
+    </div>
+    <div class="col s4"></div>
+  </div>
+  <div id="accuracy" v-if="accuracy || accuracy &gt; 0">[[accuracy]] m</div>
+</div>
+{# エラー表示 #}
+{% include 'error.html' %}
+{# 駅情報 #}
+<div v-if="station">
+  {# ルビ #}
+  <div id="ruby" v-bind:class="{large_font : largeFont}">[[ruby]]</div>
+  {# 駅名 #}
+  <h2 v-bind:class="{large_font : largeFont}">[[name]]</h2>
+  {# 住所 #}
+  <div id="address" v-bind:class="{large_font : largeFont}">[[address]]</div>
+  <div id="links">
+    <a class="waves-effect" v-bind:href="links.wikipedia">Wikipedia</a>
+    <a class="waves-effect" v-bind:href="links.google">Google検索</a>
+    <a class="waves-effect" v-bind:href="links.map">地図表示</a>
+    <a class="waves-effect" v-bind:href="links.twitter">Twitter検索</a>
+  </div>
+  <div class="row" v-for="companies in triples">
+    <div class="company col s12 m6 l4" v-bind:class="{large_font : largeFont}" v-for="company in companies">
+      <div class="company_name">[[company.name]]</div>
+      <div class="line" v-for="line in company.lines">
+        <div class="line_left">
+          <div class="line_color" v-bind:style="line.color_style"></div>
+        </div>
+        <div class="line_right">
+          <span class="line_name1">[[line.name1]]</span>
+          <span class="line_name2">[[line.name2]]</span>
+          <div class="line_line"></div>
+          <div class="line_previous_next">
+            <div class="previous_station">
+              <a class="waves-effect" v-bind:href="line.previous.link">[[line.previous.name]]</a>
+            </div>
+            <div class="next_station">
+              <a class="waves-effect" v-bind:href="line.next.link">[[line.next.name]]</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 center-align">
+      <a class="tweet waves-effect"
+        target="_blank"
+        v-bind:href="links.twitter_share">
+        <img src="/static/twitter.svg" />
+        ツイートする
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 center-align">
+      <a class="waves-effect" href="https://blog.ichiwear.jp/">ブログ</a>
+      <a class="waves-effect" href="https://twitter.com/ichiwear">Twitter</a>
+      <a class="waves-effect" href="guide.html">ガイド</a>
+      <a class="waves-effect" href="privacy.html">プライバシーポリシー</a>
+    </div>
+  </div>
+  <div class="row" v-if="debug">
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>FG</th>
+          <th>Error</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th>Accuracy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="log in logs">
+          <td>[[log.time]]</td>
+          <td>[[log.foreground]]</td>
+          <td>[[log.error]]</td>
+          <td>[[log.latitude]]</td>
+          <td>[[log.longitude]]</td>
+          <td>[[log.accuracy]]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row center-align" v-if="debug"><a href="/?wcp=1">getCurrentPositionを使う</a></div>
+</div>
