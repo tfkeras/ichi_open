@@ -1,3 +1,6 @@
 /node_modules/
 debug_keyfile.json
+<<<<<<< HEAD
 package-lock.json
+=======
+>>>>>>> 70367b1b56a9867c42aaccb683257011f471f367
